@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Shree Sai Computers</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+        --brand-red: #a31015; 
+        --brand-blue: #0056b3;
+        --deep-black: #ffffff; 
+        --glass: rgba(0, 0, 0, 0.05);
+        --text-gray: #444444;
+        --text-light: #ffffff;
+        /* Define Font Variables for easy management */
+        --font-title: 'Montserrat', sans-serif;
+        --font-body: 'Open Sans', sans-serif;
+    }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        body { 
+            background: var(--deep-black); 
+            color: var(--heading-dark); 
+            font-family: 'Montserrat', sans-serif; 
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: var(--brand-red); border-radius: 10px; }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 15px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px);
+            z-index: 1000; border-bottom: 1px solid rgba(163, 16, 21, 0.1);
+            transition: 0.4s;
+        }
+        .logo-text { font-family:   'Montserrat', sans-serif; color: #1a1a1a; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; }
+        .logo-text span { color: var(--brand-red); }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 30px; }
+        .nav-links a { 
+            text-decoration: none; color: #1a1a1a; font-weight: 600; 
+            text-transform: uppercase; font-size: 14px; letter-spacing: 1px;
+            transition: 0.3s;
+              font-family: 'Montserrat', sans-serif; 
+        }
+        .nav-links a:hover { color: var(--brand-red); }
+
+        /* Page Header */
+        .page-header {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://img.freepik.com/premium-photo/world-futuristic-high-tech-corporate-business-technology-background_59535-6626.jpg?semt=ais_rp_progressive&w=740&q=80');
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; border-bottom: 3px solid var(--brand-red);
+            margin-top: 60px;
+        }
+        .page-header h1 { font-family:   'Montserrat', sans-serif; color: #fff; font-size: clamp(2rem, 6vw, 4rem); letter-spacing: 5px; text-transform: uppercase; }
+
+        /* Service Section Styling */
+        .container { padding: 80px 8%; }
+        .service-row { display: flex; gap: 50px; align-items: center; margin-bottom: 100px; flex-wrap: wrap; }
+        .service-row:nth-child(even) { flex-direction: row-reverse; }
+        
+        .service-text { flex: 1; min-width: 300px; }
+        .service-img { flex: 1; min-width: 300px; position: relative; }
+        
+        .service-img img { 
+            width: 100%; border-radius: 15px; 
+            border: 1px solid rgba(163, 16, 21, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: 0.5s;
+        }
+        .service-row:hover .service-img img { transform: scale(1.02); border-color: var(--brand-red); box-shadow: 0 15px 35px rgba(163, 16, 21, 0.15); }
+
+        .service-text h2 { font-family:  'Open Sans', sans-serif; font-size: 2.2rem; margin-bottom: 20px; color: var(--heading-dark); }
+        .service-text h2 span { color: var(--brand-red); }
+        .line { width: 70px; height: 4px; background: var(--brand-red); margin-bottom: 25px; }
+        .service-text p { color: var(--text-gray); font-size: 1.15rem; line-height: 1.7; margin-bottom: 20px; }
+        
+        .service-list { list-style: none; }
+        .service-list li { margin-bottom: 12px; display: flex; align-items: center; color: #333; font-size: 1.05rem; }
+        .service-list li i { color: var(--brand-red); margin-right: 15px; font-size: 14px; }
+
+        /* CTA Section */
+        .cta-box {
+            background: #f9f9f9;
+            padding: 60px; border-radius: 20px; text-align: center;
+            border: 1px solid #eee; margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .cta-box h3 { font-family:  'Open Sans', sans-serif; font-size: 2rem; margin-bottom: 20px; color: var(--heading-dark); }
+        .cta-box a { 
+            display: inline-block; padding: 15px 40px; border: 2px solid var(--brand-red); 
+            color: var(--brand-red); text-decoration: none; font-weight: bold; 
+            text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; 
+        }
+        .cta-box a:hover { background: var(--brand-red); color: #fff; }
+
+        /* Footer */
+        footer { background: #000; padding: 80px 8% 30px; border-top: 1px solid #111; color: #fff; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; }
+        .f-col h4 { font-family:  'Open Sans', sans-serif; color: var(--brand-red); margin-bottom: 25px; letter-spacing: 1px; }
+        .f-col p { color: #aaa; margin-bottom: 12px; font-size: 15px; }
+        .f-col i { color: var(--brand-red); margin-right: 12px; width: 20px; text-align: center; }
+        .f-col ul { list-style: none; color: #aaa; }
+        .f-col li { margin-bottom: 8px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .container { padding: 60px 5%; }
+            .service-text h2 { font-size: 1.8rem; }
+            .service-row { margin-bottom: 60px; }
+        }
+         .menu-toggle{
+display:none;
+font-size:24px;
+cursor:pointer;
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+.menu-toggle{
+display:block;
+}
+
+.nav-links{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:#fff;
+flex-direction:column;
+text-align:center;
+display:none;
+}
+
+.nav-links li{
+margin:15px 0;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+}
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+
+<div class="logo-text">SHREE SAI <span>COMPUTERS</span></div>
+
+<div class="menu-toggle" id="mobile-menu">
+<i class="fas fa-bars"></i>
+</div>
+
+<ul class="nav-links" id="nav-menu">
+<li><a href="index.html" style="color: var(--brand-red);">Home</a></li>
+<li><a href="aboutus.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="process.html">Process</a></li>
+<li><a href="contactus.html">Contact</a></li>
+</ul>
+
+</nav>
+
+
+    <header class="page-header">
+        <h1 data-aos="zoom-out">TECH SOLUTIONS</h1>
+    </header>
+
+    <div class="container">
+        <div class="service-row" data-aos="fade-up">
+            <div class="service-text">
+                <h2>CCTV <span>Surveillance</span></h2>
+                <div class="line"></div>
+                <p>Hum provide karte hain advanced monitoring solutions jo aapke ghar aur business ko 24/7 surakshit rakhte hain.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check-circle"></i> HD/4K Network & IP Cameras</li>
+                    <li><i class="fas fa-check-circle"></i> 4G & Solar Wireless CCTV</li>
+                    <li><i class="fas fa-check-circle"></i> Automatic Number Plate Recognition (ANPR)</li>
+                    <li><i class="fas fa-check-circle"></i> Video Management Systems (VMS)</li>
+                </ul>
+            </div>
+            <div class="service-img">
+                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1444&auto=format&fit=crop" alt="CCTV Systems">
+            </div>
+        </div>
+
+        <div class="service-row" data-aos="fade-up">
+            <div class="service-text">
+                <h2>IT <span>Hardware</span> & Infrastructure</h2>
+                <div class="line"></div>
+                <p>High-performance hardware solutions jo aapke business operations ko smooth banate hain.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check-circle"></i> Servers, Storage & Cloud Computing</li>
+                    <li><i class="fas fa-check-circle"></i> High-end Gaming & Workstation PCs</li>
+                    <li><i class="fas fa-check-circle"></i> Interactive LED Walls & Touch Panels</li>
+                    <li><i class="fas fa-check-circle"></i> Refurbished Laptops & Desktops</li>
+                </ul>
+            </div>
+            <div class="service-img">
+                <img src="https://www.i2k2.com/wp-content/uploads/2019/01/How-Enterprise-Hardware-Solution-does-supports-your-IT-Infrastructure-i2k2-Blog.jpg" alt="IT Infrastructure">
+            </div>
+        </div>
+
+        <div class="service-row" data-aos="fade-up">
+            <div class="service-text">
+                <h2>Access <span>Control</span> & Security</h2>
+                <div class="line"></div>
+                <p>Smart security systems jo entrance aur exit ko digitalize aur secure karte hain.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check-circle"></i> Biometric Attendance Systems</li>
+                    <li><i class="fas fa-check-circle"></i> Boom Barriers & Turnstiles</li>
+                    <li><i class="fas fa-check-circle"></i> Smart Digital Locks</li>
+                    <li><i class="fas fa-check-circle"></i> Online UPS & Solar Power Systems</li>
+                </ul>
+            </div>
+            <div class="service-img">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop" alt="Access Control">
+            </div>
+        </div>
+
+        <div class="service-row" data-aos="fade-up">
+            <div class="service-text">
+                <h2>Software <span>Installation</span></h2>
+                <div class="line"></div>
+                <p>Hamari expertise software solutions mein aapke business data ko manage aur secure karti hai.</p>
+                <ul class="service-list">
+                    <li><i class="fas fa-check-circle"></i> ERP, CRM & SAP Support</li>
+                    <li><i class="fas fa-check-circle"></i> Tally Prime & Vyapar Accounting</li>
+                    <li><i class="fas fa-check-circle"></i> Quick Heal & Net Protector Antivirus</li>
+                    <li><i class="fas fa-check-circle"></i> Adobe & AutoCAD Master Support</li>
+                </ul>
+            </div>
+            <div class="service-img">
+                <img src="https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=1506&auto=format&fit=crop" alt="Software Support">
+            </div>
+        </div>
+
+        <div class="cta-box" data-aos="zoom-in">
+            <h3>Need a Customized Solution?</h3>
+            <p style="color: var(--text-gray); margin-bottom: 25px;">Hamare experts se baat karein aur apne business ke liye best IT setup choose karein.</p>
+            <a href="index.html#contact" style="font-family:  'Open Sans', sans-serif;">Get Free Quote</a>
+        </div>
+
+    </div>
+
+     <footer id="contact">
+        <div class="footer-grid">
+            <div class="f-col">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Vasai, Mumbai, Maharashtra</p>
+                <p><i class="fas fa-phone"></i> +91 92244 67881</p>
+                <p><i class="fas fa-envelope"></i> shreesai.computers@live.com</p>
+                <p><i class="fas fa-globe"></i> www.shreesaicomputers.net</p>
+            </div>
+            <div class="f-col">
+                <h4>Software Expertise</h4>
+                <ul>
+                    <li>Tally Prime & Vyapar</li>
+                    <li>ERP, CRM & SAP</li>
+                    <li>Quick Heal & Net Protector</li>
+                    <li>Adobe & Autocad Support</li>
+                </ul>
+            </div>
+            <div class="f-col">
+                <h4>About Company</h4>
+                <p>Providing Turnkey IT and Security infrastructure solutions for SMEs and Corporate sectors across India since inception.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 60px; padding-top: 20px; border-top: 1px solid #222; font-size: 13px; color: #555; letter-spacing: 1px;">
+            &copy; 2026 SHREE SAI COMPUTERS. ALL RIGHTS RESERVED.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        window.onscroll = function() {
+            var nav = document.getElementById('navbar');
+            if (window.pageYOffset > 100) {
+                nav.style.background = "rgba(255, 255, 255, 0.98)";
+                nav.style.boxShadow = "0 2px 10px rgba(0,0,0,0.1)";
+                nav.style.padding = "10px 8%";
+            } else {
+                nav.style.background = "rgba(255, 255, 255, 0.95)";
+                nav.style.boxShadow = "none";
+                nav.style.padding = "15px 8%";
+            }
+        };
+    </script>
+    <script>
+
+const menu = document.getElementById("mobile-menu");
+const nav = document.getElementById("nav-menu");
+
+menu.addEventListener("click", function(){
+nav.classList.toggle("active");
+});
+
+</script>
+</body>
+</html>
